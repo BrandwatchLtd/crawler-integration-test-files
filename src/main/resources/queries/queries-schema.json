@@ -1,0 +1,195 @@
+{
+  "type": "record",
+  "name": "Query",
+  "namespace": "com.brandwatch.storage.avro",
+  "fields": [
+    {
+      "name": "id",
+      "type": "int"
+    },
+    {
+      "name": "name",
+      "type": {
+        "type": "string",
+        "avro.java.string": "String"
+      },
+      "default": ""
+    },
+    {
+      "name": "industry",
+      "type": {
+        "type": "string",
+        "avro.java.string": "String"
+      }
+    },
+    {
+      "name": "creatorId",
+      "type": "int"
+    },
+    {
+      "name": "subtype",
+      "type": {
+        "type": "string",
+        "avro.java.string": "String"
+      }
+    },
+    {
+      "name": "lastModificationTime",
+      "type": "long"
+    },
+    {
+      "name": "creationTime",
+      "type": "long",
+      "default": 0
+    },
+    {
+      "name": "clientId",
+      "type": "int"
+    },
+    {
+      "name": "topClientId",
+      "type": "int"
+    },
+    {
+      "name": "shard",
+      "type": "int"
+    },
+    {
+      "name": "languageAgnostic",
+      "type": "boolean"
+    },
+    {
+      "name": "projectId",
+      "type": "int"
+    },
+    {
+      "name": "languageCodes",
+      "type": {
+        "type": "array",
+        "items": {
+          "type": "string",
+          "avro.java.string": "String"
+        }
+      }
+    },
+    {
+      "name": "queryString",
+      "type": {
+        "type": "string",
+        "avro.java.string": "String"
+      },
+      "default": ""
+    },
+    {
+      "name": "includedTerms",
+      "type": {
+        "type": "array",
+        "items": {
+          "type": "record",
+          "name": "Term",
+          "fields": [
+            {
+              "name": "priority",
+              "type": "int"
+            },
+            {
+              "name": "term",
+              "type": {
+                "type": "string",
+                "avro.java.string": "String"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "excludedTerms",
+      "type": {
+        "type": "array",
+        "items": "Term"
+      },
+      "default": []
+    },
+    {
+      "name": "contextTerms",
+      "type": {
+        "type": "array",
+        "items": "Term"
+      },
+      "default": []
+    },
+    {
+      "name": "twitterDetails",
+      "type": [
+        "null",
+        {
+          "type": "record",
+          "name": "TwitterDetails",
+          "fields": [
+            {
+              "name": "twitterUserId",
+              "type": {
+                "type": "string",
+                "avro.java.string": "String"
+              }
+            },
+            {
+              "name": "twitterScreenName",
+              "type": {
+                "type": "string",
+                "avro.java.string": "String"
+              }
+            }
+          ]
+        }
+      ],
+      "default": null
+    },
+    {
+      "name": "facebookDetails",
+      "type": [
+        "null",
+        {
+          "type": "record",
+          "name": "FacebookDetails",
+          "fields": [
+            {
+              "name": "facebookPageId",
+              "type": {
+                "type": "string",
+                "avro.java.string": "String"
+              }
+            },
+            {
+              "name": "facebookPageName",
+              "type": {
+                "type": "string",
+                "avro.java.string": "String"
+              }
+            },
+            {
+              "name": "facebookQueryType",
+              "type": {
+                "type": "string",
+                "avro.java.string": "String"
+              },
+              "default": ""
+            }
+          ]
+        }
+      ],
+      "default": null
+    },
+    {
+      "name": "paused",
+      "type": "boolean",
+      "default": false
+    },
+    {
+      "name": "samplePercent",
+      "type": "int",
+      "default": 100
+    }
+  ]
+}
